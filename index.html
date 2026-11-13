@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Maqueta del catálogo y panel de Laundry And Órbita."
+    />
+    <title>Laundry And Órbita · Maqueta web</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-bar">
+      <span>MAQUETA WEB · LUCILA STUDIO</span>
+      <a href="#panel" id="view-link">
+        Ver panel administrativo <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <main id="store">
+      <header class="site-header">
+        <a
+          class="wordmark"
+          href="#inicio"
+          aria-label="Laundry And Órbita, inicio"
+        >
+          LAUNDRY<span>AND ÓRBITA</span>
+        </a>
+
+        <nav aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#coleccion">Colección</a>
+          <a href="#local">El local</a>
+        </nav>
+
+        <button class="bag-link" data-action="bag">
+          <span class="bag-icon" aria-hidden="true"></span>
+          <span class="bag-label">Mi selección</span>
+          <span id="bag-count">0</span>
+        </button>
+      </header>
+
+      <section class="hero" id="inicio">
+        <div class="hero-content">
+          <span class="eyebrow">LAUNDRY AND ÓRBITA</span>
+          <h1>Vestí a<br />tu manera.</h1>
+          <p>
+            Prendas y accesorios para combinar a tu estilo. Descubrí la
+            colección y consultanos por WhatsApp.
+          </p>
+          <a class="button gold" href="#coleccion">
+            Ver colección <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="collection wrap" id="coleccion">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">CATÁLOGO</span>
+            <h2>La colección</h2>
+          </div>
+          <span id="result-count"></span>
+        </div>
+
+        <div class="filters" id="filters" aria-label="Categorías"></div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="location" id="local">
+        <div class="wrap location-inner">
+          <div>
+            <span class="eyebrow">EN ROSARIO</span>
+            <h2>Visitá el local</h2>
+            <p>
+              Shopping Paso del Bosque · Av. Sorrento 7000<br />
+              Todos los días de 10 a 21 h
+            </p>
+          </div>
+          <a
+            class="button outline"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Shopping+Paso+del+Bosque+Rosario"
+            target="_blank"
+            rel="noopener"
+          >
+            Cómo llegar →
+          </a>
+        </div>
+      </section>
+
+      <footer class="wrap footer">
+        <a class="wordmark" href="#inicio">LAUNDRY<span>AND ÓRBITA</span></a>
+        <p>Catálogo de muestra · Productos y precios ilustrativos.</p>
+      </footer>
+    </main>
+
+    <main id="panel" hidden>
+      <div class="admin-layout">
+        <aside class="sidebar">
+          <a class="wordmark" href="#inicio">LAUNDRY<span>AND ÓRBITA</span></a>
+
+          <div class="sidebar-menu">
+            <span class="eyebrow">ADMINISTRACIÓN</span>
+            <span class="sidebar-active">▤ &nbsp; Productos</span>
+            <a href="#coleccion">→ &nbsp; Ver catálogo</a>
+          </div>
+        </aside>
+
+        <section class="admin-main" aria-labelledby="panel-heading">
+          <header class="admin-header">
+            <div>
+              <span class="eyebrow">PANEL ADMINISTRATIVO</span>
+              <h1 id="panel-heading">Productos</h1>
+              <p>Gestioná los productos que se muestran en la web.</p>
+            </div>
+            <button class="button primary" data-action="new">
+              + Nuevo producto
+            </button>
+          </header>
+
+          <div class="stats" id="stats"></div>
+
+          <div class="inventory">
+            <div class="table-toolbar">
+              <h2>Catálogo</h2>
+
+              <div class="table-controls">
+                <input
+                  id="search"
+                  type="search"
+                  placeholder="Buscar producto"
+                  aria-label="Buscar producto"
+                />
+                <select id="status-filter" aria-label="Filtrar por estado">
+                  <option value="all">Todos los estados</option>
+                  <option value="published">Publicados</option>
+                  <option value="draft">Borradores</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th><span class="sr-only">Acciones</span></th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="admin-note">
+            <p>Los cambios de la maqueta se guardan en este navegador.</p>
+            <button class="plain-link" data-action="reset">
+              Restaurar ejemplos
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <div role="status" id="toast" class="toast" hidden></div>
+  </body>
+</html>
